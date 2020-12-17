@@ -1,0 +1,26 @@
+; ggT von A und B
+
+read  01   ; A
+read  02   ; B
+
+lade  02
+sub-  01   ; B-A
+go.p  18
+go.0  18   ; A<=B
+lade  01
+stor  07
+lade  02
+stor  01
+lade  07
+stor  02   ; A und B vertauscht
+goto  06
+
+lade  02
+sub-  01   ; B-A
+stor  02   ; B=B-A
+lade  01
+go.0  25   ; A=0
+goto  06
+
+writ  02   ; ggT=B
+end.  00

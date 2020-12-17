@@ -1,0 +1,16 @@
+; Zinsberechnung (S. 340)
+
+read  02   ; Eingabe 100
+read  03   ; Eingabe P
+
+read  01   ; Eingabe K
+lade  01   ; hole K nach AC
+mul*  03   ; Berechnung K*P
+div/  02   ; Berechnung K*P/100
+stor  04   ; bringe Z nach DS(4)
+writ  01   ; Ausgabe K
+writ  03   ; Ausgabe P
+writ  04   ; Ausgabe Z
+go.p  06   ; bedingter Sprung
+
+end.  00   ; Ende des Programms

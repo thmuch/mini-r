@@ -1,0 +1,38 @@
+; Zinseszinsen
+
+read  02   ; Eingabe 100
+lade  02
+div/  02
+stor  06   ; Konstante 1
+read  03   ; Eingabe P
+
+read  01   ; Eingabe K
+read  05   ; Eingabe N
+lade  05
+go.p  14
+goto  33   ; Ende, wenn N=0
+lade  03   ; P
+div/  02   ; P/100
+add+  06   ; 1+P/100
+stor  07
+stor  08
+goto  24
+
+lade  08
+mul*  07
+stor  08
+lade  05   ; N
+sub-  06   ; N-1
+stor  05
+go.p  21
+lade  08
+sub-  06   ; (1+P/100)^N-1
+mul*  01   ; *K
+stor  04
+
+writ  01   ; Ausgabe K
+writ  03   ; Ausgabe P
+writ  04   ; Ausgabe Z
+go.p  09   ; bedingter Sprung
+
+end.  00   ; Ende des Programms

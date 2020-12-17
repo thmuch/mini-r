@@ -1,0 +1,19 @@
+; Summe der ersten N natÅrlichen Zahlen
+
+read  01   ; N
+lade  01
+go.p  08
+goto  18
+
+div/  01
+stor  02   ; Konstante 1
+add+  02
+stor  03   ; Konstante 2
+lade  02
+add+  01   ; 1+N
+mul*  01   ; N*(1+N)
+div/  03   ; N/2*(1+N)
+stor  04
+
+writ  04
+end.  00

@@ -1,0 +1,24 @@
+; Berechnung von A^N
+
+read  01   ; A
+read  02   ; N
+
+lade  01
+go.0  23
+div/  01
+stor  03   ; Konstante 1
+stor  04   ; Ergebnis
+
+lade  02
+go.p  15
+goto  23
+lade  04
+mul*  01   ; *A
+stor  04
+lade  02   ; N
+sub-  03   ; N-1
+stor  02   ; N=N-1
+goto  11
+
+writ  04
+end.  00

@@ -1,0 +1,24 @@
+; Berechnung von äAý
+
+read  01   ; N
+lade  01
+go.p  08
+goto  23
+
+div/  01
+stor  02   ; Konstante 1
+stor  03   ; aktuelle Zahl
+
+lade  03
+mul*  03   ; A^2
+add+  04   ; + alte Summe
+stor  04   ; = neue Summe
+lade  03
+add+  02
+stor  03   ; neue Zahl
+sub-  01
+go.p  23   ; A>N
+goto  12
+
+writ  04
+end.  00
