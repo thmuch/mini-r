@@ -1,0 +1,24 @@
+; * * * * * * * * * * * * * * * * * * *
+; *      Berechnung von N!            *
+; * mit korrekter Behandlung von N=0  *
+; *     written by TM 14.11.90        *
+; * * * * * * * * * * * * * * * * * * *
+
+read  01   ; Eingabe der Konstanten 1
+read  02   ; Eingabe der Zahl N
+writ  02   ; Ausgabe der Zahl N
+lade  01   ; 1 in AC laden
+stor  03   ; in DS(3) speichern => wichtig fÅr N=0
+lade  02   ; hole N in den Akkumulator
+go.0  23   ; wenn N=0, dann Programmende
+
+stor  03   ; Speichere Produkt nach DS(3)
+lade  02   ; hole jeweilige Zahl nach AC
+sub-  01   ; verkleinere sie um 1
+go.0  23   ; springe, wenn 0 erreicht ist
+stor  02   ; speichere Zahl nach DS(2)
+mul*  03   ; multipliziere mit dem Produkt
+goto  15   ; springe an den Anfang PS(15)
+
+writ  03   ; Ausgabe von N!
+end.  00   ; Ende des Programms

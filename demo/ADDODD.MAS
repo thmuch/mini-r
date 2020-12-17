@@ -1,0 +1,29 @@
+; Summe der ersten N ungeraden Zahlen
+; Copyright (c)15.11.90 by Thomas Much
+; Belegung von DS:
+; 1=N, 2=aktuelle Zahl, 4=Summe, 5=1(const), 6=2(const)
+
+read  01   ; N einlesen
+lade  01   ; hole N nach AC
+go.p  10   ; nur rechnen, wenn N positiv
+goto  28   ;   sonst Programmende
+stor  02   ; aktuelle Zahl (z.Z.=N)
+div/  01   ; =1
+stor  05   ; Konstante 1
+add+  05   ; 1+1
+stor  06   ; Konstante 2
+lade  02   ; hole aktuelle Zahl
+mul*  06   ; mal 2
+sub-  05   ; minus 1
+stor  02   ; aktuelle Zahl speichern
+
+lade  04   ; hole Summe
+add+  02   ; aktuelle Zahl addieren
+stor  04   ; Summe speichern
+lade  02   ; hole aktuelle Zahl
+sub-  06   ; minus 2
+stor  02   ; aktuelle Zahl speichern
+go.p  20   ; weiter, solange aktuelle Zahl positiv
+
+writ  04   ; Summe ausgeben
+end.  00   ; Programmende
