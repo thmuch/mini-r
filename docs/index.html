@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MINI/R</title>
+    <script src="https://js-dos.com/6.22/current/js-dos.js"></script>
+    <style>
+        canvas {
+            width: 80%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<h1>MINI/R</h1>
+
+<p>This is ... TODO ... from 1990 13. Klasse vorm Abitur, Informatik-AG (wasn't a real Schulfach back then)
+
+    <a href="https://github.com/thmuch/mini-r">MINI/R</a>,
+    running in <a href="https://js-dos.com/">JS-DOS</a>. Have fun &#128513;</p>
+
+<canvas id="jsdos"></canvas>
+
+<script>
+    Dos(document.getElementById("jsdos"), {
+        wdosboxUrl: "https://js-dos.com/6.22/current/wdosbox.js",
+        cycles: 1000,
+        autolock: false,
+    }).ready(function (fs, main) {
+        fs.extract("MINI.zip").then(function () {
+            main(["-c", "MINI.EXE"]).then(function (ci) {
+                window.ci = ci;
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
